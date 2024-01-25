@@ -1,0 +1,149 @@
+# nmap -sV -A -Pn -n -vvv -oN featured 10.10.51.99 -p22,80,139,445,8009,8080
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2024-01-12 19:28 GMT
+NSE: Loaded 146 scripts for scanning.
+NSE: Script Pre-scanning.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 19:28
+Completed NSE at 19:28, 0.00s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 19:28
+Completed NSE at 19:28, 0.00s elapsed
+Initiating ARP Ping Scan at 19:28
+Scanning 10.10.51.99 [1 port]
+Completed ARP Ping Scan at 19:28, 0.22s elapsed (1 total hosts)
+Initiating SYN Stealth Scan at 19:28
+Scanning 10.10.51.99 [6 ports]
+Discovered open port 139/tcp on 10.10.51.99
+Discovered open port 80/tcp on 10.10.51.99
+Discovered open port 22/tcp on 10.10.51.99
+Discovered open port 8080/tcp on 10.10.51.99
+Discovered open port 445/tcp on 10.10.51.99
+Discovered open port 8009/tcp on 10.10.51.99
+Completed SYN Stealth Scan at 19:28, 0.22s elapsed (6 total ports)
+Initiating Service scan at 19:28
+Scanning 6 services on 10.10.51.99
+Completed Service scan at 19:28, 11.02s elapsed (6 services on 1 host)
+Initiating OS detection (try #1) against 10.10.51.99
+adjust_timeouts2: packet supposedly had rtt of -175123 microseconds.  Ignoring time.
+adjust_timeouts2: packet supposedly had rtt of -175123 microseconds.  Ignoring time.
+Retrying OS detection (try #2) against 10.10.51.99
+NSE: Script scanning 10.10.51.99.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 19:28
+Completed NSE at 19:28, 0.38s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 19:28
+Completed NSE at 19:28, 0.00s elapsed
+Nmap scan report for 10.10.51.99
+Host is up, received arp-response (0.0010s latency).
+Scanned at 2024-01-12 19:28:42 GMT for 17s
+
+PORT     STATE SERVICE     REASON         VERSION
+22/tcp   open  ssh         syn-ack ttl 64 OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 db:45:cb:be:4a:8b:71:f8:e9:31:42:ae:ff:f8:45:e4 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZXasCfWSXQ9lYiKbTNkPs0T+wFym2lZy229LllhY6iDLrjm7LIkhCcrlgnJQtLxl5NPhlHNVmwhlkcPPiAHwluhMVE5xKihQj3i+Ucx2IwiFvfmCz4AKsWlR6N8IZe55Ltw0lcH9ykuKZddg81X85EVsNbMacJNjjyxAtwQmJt1F5kB1B2ixgjLLOyNWafC5g1h6XbEgB2wiSRJ5UA8rOZaF28YcDVo0MQhsKpQG/5oPmQUsIeJTUA/XkoWCjvXZqHwv8XInQLQu3VXKgv735G+CJaKzplh7FZyXju8ViDSAY8gdhqpJommYxzqu9s1M31cmFg2fT5V1z9s4DP/vd
+|   256 09:b9:b9:1c:e0:bf:0e:1c:6f:7f:fe:8e:5f:20:1b:ce (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBP0SXJpgwPf/e9AT9ri/dlAnkob4PqzMjl2Q9lZIVIXeEFJ9sfRkC+tgSjk9PwK0DUO3JU27pmtAkDL4Mtv9eZw=
+|   256 a5:68:2b:22:5f:98:4a:62:21:3d:a2:e2:c5:a9:f7:c2 (EdDSA)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAzy8ZacWXbPGeqtuiJCnPP0LYZYZlMj5D1ZY9ldg1wU
+80/tcp   open  http        syn-ack ttl 64 Apache httpd 2.4.18 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Site doesn't have a title (text/html).
+139/tcp  open  netbios-ssn syn-ack ttl 64 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn syn-ack ttl 64 Samba smbd 4.3.11-Ubuntu (workgroup: WORKGROUP)
+8009/tcp open  ajp13       syn-ack ttl 64 Apache Jserv (Protocol v1.3)
+| ajp-methods: 
+|_  Supported methods: GET HEAD POST OPTIONS
+8080/tcp open  http        syn-ack ttl 64 Apache Tomcat 9.0.7
+|_http-favicon: Apache Tomcat
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Apache Tomcat/9.0.7
+MAC Address: 02:C7:38:2C:A7:6D (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+OS fingerprint not ideal because: Missing a closed TCP port so results incomplete
+Aggressive OS guesses: Linux 3.13 (99%), ASUS RT-N56U WAP (Linux 3.4) (95%), Linux 3.16 (95%), Linux 3.1 (93%), Linux 3.2 (93%), Linux 3.8 (93%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (92%), Android 5.0 - 5.1 (92%), Linux 3.10 (92%), Linux 3.12 (92%)
+No exact OS matches for host (test conditions non-ideal).
+TCP/IP fingerprint:
+SCAN(V=7.60%E=4%D=1/12%OT=22%CT=%CU=38894%PV=Y%DS=1%DC=D%G=N%M=02C738%TM=65A192FB%P=x86_64-pc-linux-gnu)
+SEQ(SP=109%GCD=1%ISR=10B%TI=Z%CI=I%TS=8)
+SEQ(SP=109%GCD=1%ISR=10B%TI=Z%CI=I%II=I%TS=8)
+OPS(O1=M2301ST11NW7%O2=M2301ST11NW7%O3=M2301NNT11NW7%O4=M2301ST11NW7%O5=M2301ST11NW7%O6=M2301ST11)
+WIN(W1=68DF%W2=68DF%W3=68DF%W4=68DF%W5=68DF%W6=68DF)
+ECN(R=Y%DF=Y%T=40%W=6903%O=M2301NNSNW7%CC=Y%Q=)
+T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)
+T2(R=N)
+T3(R=N)
+T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)
+T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)
+U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)
+IE(R=Y%DFI=N%T=40%CD=S)
+
+Uptime guess: 0.011 days (since Fri Jan 12 19:13:49 2024)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=265 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: Host: BASIC2; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: mean: 0s, deviation: 0s, median: 0s
+| nbstat: NetBIOS name: BASIC2, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| Names:
+|   BASIC2<00>           Flags: <unique><active>
+|   BASIC2<03>           Flags: <unique><active>
+|   BASIC2<20>           Flags: <unique><active>
+|   \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|   WORKGROUP<1d>        Flags: <unique><active>
+|   WORKGROUP<1e>        Flags: <group><active>
+| Statistics:
+|   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+|   00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+|_  00 00 00 00 00 00 00 00 00 00 00 00 00 00
+| p2p-conficker: 
+|   Checking for Conficker.C or higher...
+|   Check 1 (port 23208/tcp): CLEAN (Couldn't connect)
+|   Check 2 (port 48726/tcp): CLEAN (Couldn't connect)
+|   Check 3 (port 35388/udp): CLEAN (Failed to receive data)
+|   Check 4 (port 28783/udp): CLEAN (Failed to receive data)
+|_  0/4 checks are positive: Host is CLEAN or ports are blocked
+| smb-os-discovery: 
+|   OS: Windows 6.1 (Samba 4.3.11-Ubuntu)
+|   Computer name: basic2
+|   NetBIOS computer name: BASIC2\x00
+|   Domain name: \x00
+|   FQDN: basic2
+|_  System time: 2024-01-12T14:28:58-05:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2024-01-12 19:28:58
+|_  start_date: 1600-12-31 23:58:45
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   1.02 ms 10.10.51.99
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 2) scan.
+Initiating NSE at 19:28
+Completed NSE at 19:28, 0.00s elapsed
+NSE: Starting runlevel 2 (of 2) scan.
+Initiating NSE at 19:28
+Completed NSE at 19:28, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.30 seconds
+           Raw packets sent: 71 (6.406KB) | Rcvd: 53 (5.306KB)
